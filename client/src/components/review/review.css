@@ -1,0 +1,15 @@
+.flex{
+    display: flex;
+    align-items: center;
+    /* border: 1px solid rebeccapurple; */
+    height: 25px;
+}
+
+.review{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    margin: 20px;
+    border-radius: 5px;
+}

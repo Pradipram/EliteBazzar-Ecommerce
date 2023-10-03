@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.728b858b.css",
+    "main.js": "/static/js/main.46f80528.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/about.png": "/static/media/about.507dda2abeb06003e2bc.png",
+    "static/media/logoWhite.png": "/static/media/logoWhite.88bb3223c2f3fcd44a20.png",
+    "static/media/fashion.jpeg": "/static/media/fashion.cde190f3939a1e6f6808.jpeg",
+    "static/media/grocery.jpeg": "/static/media/grocery.2ec841fedb176bdc0ead.jpeg",
+    "static/media/logo.jpg": "/static/media/logo.a8298b34b930f01db784.jpg",
+    "static/media/revicons.eot": "/static/media/revicons.a77de540a38981833f9e.eot",
+    "static/media/revicons.ttf": "/static/media/revicons.57fd05d4ae650374c8de.ttf",
+    "static/media/revicons.woff": "/static/media/revicons.e8746a624ed098489406.woff",
+    "index.html": "/index.html",
+    "main.728b858b.css.map": "/static/css/main.728b858b.css.map",
+    "main.46f80528.js.map": "/static/js/main.46f80528.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.728b858b.css",
+    "static/js/main.46f80528.js"
+  ]
+}

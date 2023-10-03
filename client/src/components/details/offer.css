@@ -1,0 +1,16 @@
+.grid-container {
+    display: grid;
+    /* grid-template-columns: auto auto auto auto; */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0px;
+  } 
+
+.grid-item {
+    max-width: 200px;
+    box-shadow: 5px 5px 5px 5px #888888;
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
+    font-family: 'Roboto Slab', serif;
+    color: #5b5656;
+}
