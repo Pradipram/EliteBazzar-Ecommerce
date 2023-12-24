@@ -2,7 +2,8 @@
 import grocery from '../images/grocery.jpeg'
 import fashion from '../images/fashion.jpeg'
 
-export const url = 'http://localhost:8000'
+// export const url = 'http://localhost:8000'
+export const url = "";
 
 export const navData = [
     { url: 'https://rukminim1.flixcart.com/flap/128/128/image/f15c02bfeb02d15d.png?q=100', text: 'Top Offers', id:'1' },
