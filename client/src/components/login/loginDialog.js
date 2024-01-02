@@ -3,6 +3,10 @@ import { Dialog, TextField, Typography} from "@mui/material";
 import { useContext, useEffect, useState,useCallback } from "react";
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import PersonIcon from '@mui/icons-material/Person';
+import EmailIcon from '@mui/icons-material/Email';
+import Key from "@mui/icons-material/Key";
+import SmartphoneIcon from '@mui/icons-material/Smartphone';
 
 //components
 import logoWhite from "../../images/logoWhite.png"
@@ -142,9 +146,19 @@ const LoginDialog = ({open,setOpen}) => {
                         <Wrapper>
                             <Typography variant="h4" style={{margin: "auto", marginTop : 15}}>Login</Typography>
                             <Typography>Email or Mobile phone number</Typography>
-                            <TextField placeholder="Enter Email or mobile phone number" size="small" onChange={(e) => onValueChange(e)} name="username"/>
+                            <TextField placeholder="Enter Email or mobile phone number" size="small" 
+                            onChange={(e) => onValueChange(e)} name="username"
+                            InputProps={{
+                                startAdornment:(
+                                    <PersonIcon/>
+                                )
+                            }}
+                            />
                             <Typography>Password</Typography>
                             <TextField placeholder="Enter Password" size="small" onChange={(e) => onValueChange(e)} name="password" type={visible?'input':'password'} InputProps={{
+                                startAdornment:(
+                                    <Key/>
+                                ),
                                 endAdornment:(
                                     visible?
                                     <VisibilityOffIcon sx={{cursor:'pointer',opacity:'0.6'}} onClick={()=>setVisible(!visible)} onMouseOver={(e) => (e.currentTarget.style.opacity = 1)} onMouseOut={(e) => (e.currentTarget.style.opacity = 0.6)}/>
@@ -161,23 +175,50 @@ const LoginDialog = ({open,setOpen}) => {
                         </Wrapper>
                     : 
                     <Wrapper>
-                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='firstname' label='Enter Firstname' />
+                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='firstname' label='Enter Firstname' 
+                                InputProps={{
+                                    startAdornment:(
+                                        <PersonIcon/>
+                                    )
+                                }}
+                            />
 
                             <div className="error">{signUpError.firstnameError}</div>
 
-                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='lastname' label='Enter Lastname' />
+                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='lastname' label='Enter Lastname' 
+                                InputProps={{
+                                    startAdornment:(
+                                        <PersonIcon/>
+                                    )
+                                }}
+                            />
 
                             <div className="error">{signUpError.lastnameError}</div>
 
-                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='email' label='Enter Email' />
+                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='email' label='Enter Email' 
+                                InputProps={{
+                                    startAdornment:(
+                                        <EmailIcon/>
+                                    )
+                                }}
+                            />
 
                             <div className="error">{signUpError.emailError}</div>
 
-                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='phone' label='Enter Phone' />
+                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='phone' label='Enter Phone' 
+                                InputProps={{
+                                    startAdornment:(
+                                        <SmartphoneIcon/>
+                                    )
+                                }}
+                            />
 
                             <div className="error">{signUpError.phoneError}</div>
 
                             <TextField variant="standard" onChange={(e) => onInputChange(e)} name='password' label='Enter Password' type={visible?'input':'password'} InputProps={{
+                                startAdornment:(
+                                    <Key/>
+                                ),
                                 endAdornment:(
                                     visible?
                                     <VisibilityOffIcon sx={{cursor:'pointer',opacity:'0.6'}} onClick={()=>setVisible(!visible)} onMouseOver={(e) => (e.currentTarget.style.opacity = 1)} onMouseOut={(e) => (e.currentTarget.style.opacity = 0.6)}/>
