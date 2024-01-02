@@ -1,13 +1,14 @@
 {
   "name": "server",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "this is my Ecommerce Website",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "test": "nodemon index.js",
-    "dev": "concurrently \"npm run test\" \"cd client && npm start\""
+    "backend": "nodemon index.js",
+    "frontend": "cd client && npm start",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
   },
   "author": "Pradip",
   "license": "ISC",

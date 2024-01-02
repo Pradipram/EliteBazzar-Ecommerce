@@ -1,81 +1,16 @@
 //Libraries
-import { Dialog, TextField ,Box, Button, Typography,styled} from "@mui/material";
+import { Dialog, TextField, Typography} from "@mui/material";
 import { useContext, useEffect, useState,useCallback } from "react";
-
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 //components
 import logoWhite from "../../images/logoWhite.png"
 import { authenticateSignup,authenticateLogin, getUserApi } from "../../service/api";
 import { LoginContext } from "../../context/dataProvider";
 import "./loginDialog.css";
+import { Component, CreateAccount, Error, LoginButton, SignUpButton, Text, Wrapper } from "./loginStyle";
 
-const Component = styled(Box)`
-    height: 85vh;
-    width: 55vh;
-    padding: 0;
-    padding-top: 0;
-`;
-
-const Wrapper = styled(Box)`
-    padding: 0px 35px;
-    display: flex;
-    flex: 1;
-    overflow: auto;
-    flex-direction: column;
-    box-shadow: 0 0px 44px 0 rgb(0 0 0 / 20%);
-    width : 70%;
-    margin: auto;
-    & > div, & > button, & > p {
-        margin-top: 20px;
-    }
-`;
-
-const LoginButton = styled(Button)`
-  && {
-    text-transform: none;
-    background: #FB641B;
-    color: #fff;
-    height: 48px;
-    border-radius: 2px;
-
-    &:hover {
-      background: #484cb5; // Set your desired hover background color
-      color: white; // Set your desired hover text color
-    }
-  }
-`;
-
-const SignUpButton = styled(Button)`
-    text-transform: none;
-    background: #fff;
-    color: #00004d;
-    height: 48px;
-    border-radius: 2px;
-    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%);
-`;
-
-const Text = styled(Typography)`
-    color: #878787;
-    font-size: 12px;
-    margin-bottom: 25px;
-`;
-
-const CreateAccount = styled(Typography)`
-    margin: auto 0 5px 0;
-    text-align: center;
-    color: #b3b3ff;
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer
-`
-
-const Error = styled(Typography)`
-    font-size: 10px;
-    color: #ff6161;
-    line-height: 0;
-    margin-top: 10px;
-    font-weight: 600;
-`
 
 const signupInitialValues = {
     firstname: '',
@@ -105,6 +40,7 @@ const LoginDialog = ({open,setOpen}) => {
     const [login,togleLogin] = useState(loginInitialValues);
     const [error,setError] = useState(false);
     const {setLogin} = useContext(LoginContext);
+    const [visible,setVisible] = useState(false);
     // const [firstNameError,setFirstNameError] = useState("");
     const [signUpError,setSignUpError] = useState(errors);
 
@@ -112,7 +48,9 @@ const LoginDialog = ({open,setOpen}) => {
         try {
             const res = await getUserApi();
             // console.log("res in getUser is ", res);
-            setLogin(res.data.firstname);
+            if(res.data){
+                setLogin(res.data.firstname);
+            }
         } catch (err) {
             console.log(err);
             setLogin("");
@@ -206,7 +144,15 @@ const LoginDialog = ({open,setOpen}) => {
                             <Typography>Email or Mobile phone number</Typography>
                             <TextField placeholder="Enter Email or mobile phone number" size="small" onChange={(e) => onValueChange(e)} name="username"/>
                             <Typography>Password</Typography>
-                            <TextField placeholder="Enter Password" size="small" onChange={(e) => onValueChange(e)} name="password" type="password"/>
+                            <TextField placeholder="Enter Password" size="small" onChange={(e) => onValueChange(e)} name="password" type={visible?'input':'password'} InputProps={{
+                                endAdornment:(
+                                    visible?
+                                    <VisibilityOffIcon sx={{cursor:'pointer',opacity:'0.6'}} onClick={()=>setVisible(!visible)} onMouseOver={(e) => (e.currentTarget.style.opacity = 1)} onMouseOut={(e) => (e.currentTarget.style.opacity = 0.6)}/>
+                                    :
+                                    <VisibilityIcon sx={{cursor:'pointer',opacity:'0.6'}} onClick={()=>setVisible(!visible)} onMouseOver={(e) => (e.currentTarget.style.opacity = 1)} onMouseOut={(e) => (e.currentTarget.style.opacity = 0.6)}/>
+                                )
+                            }}
+                            />
                             {error && <Error>Please Enter Correct Username or Password</Error>}
                             <LoginButton onClick={()=>loginUser()}>login</LoginButton>
                             <CreateAccount>New to EliteBazaar</CreateAccount>
@@ -231,7 +177,14 @@ const LoginDialog = ({open,setOpen}) => {
 
                             <div className="error">{signUpError.phoneError}</div>
 
-                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='password' label='Enter Password' type="password"/>
+                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='password' label='Enter Password' type={visible?'input':'password'} InputProps={{
+                                endAdornment:(
+                                    visible?
+                                    <VisibilityOffIcon sx={{cursor:'pointer',opacity:'0.6'}} onClick={()=>setVisible(!visible)} onMouseOver={(e) => (e.currentTarget.style.opacity = 1)} onMouseOut={(e) => (e.currentTarget.style.opacity = 0.6)}/>
+                                    :
+                                    <VisibilityIcon sx={{cursor:'pointer',opacity:'0.6'}} onClick={()=>setVisible(!visible)} onMouseOver={(e) => (e.currentTarget.style.opacity = 1)} onMouseOut={(e) => (e.currentTarget.style.opacity = 0.6)}/>
+                                )
+                            }}/>
 
                             <div className="error">{signUpError.passwordError}</div>
 
