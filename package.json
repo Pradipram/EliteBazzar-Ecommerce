@@ -27,6 +27,7 @@
     "mongoose": "^7.3.0",
     "razorpay": "^2.8.6",
     "uuid": "^9.0.0",
-    "validator": "^13.11.0"
+    "validator": "^13.11.0",
+    "braces": ">=2.3.1"
   }
 }
