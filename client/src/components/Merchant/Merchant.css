@@ -1,0 +1,7 @@
+.merchantNavbar{
+    display: flex;
+    background-color: blue;
+    justify-content: space-between;
+    /* padding: 20px; */
+    /* height: 70px;     */
+}

@@ -42,9 +42,9 @@ const LoginDialog = ({open,setOpen}) => {
     const [signup,setSignup] = useState(signupInitialValues);
     const [login,togleLogin] = useState(loginInitialValues);
     const [error,setError] = useState(false);
-    const {setLogin} = useContext(LoginContext);
     const [visible,setVisible] = useState(false);
-    const {setIsMerchant} = useContext(LoginContext)
+
+    const {setLogin,setIsMerchant,setUserDetails} = useContext(LoginContext);
     // const [firstNameError,setFirstNameError] = useState("");
     const [signUpError,setSignUpError] = useState(errors);
 
@@ -57,12 +57,13 @@ const LoginDialog = ({open,setOpen}) => {
                 // console.log("isMerchant,loginDialog.js",60,isMerchant);
                 setIsMerchant(isMerchant);
                 setLogin(res.data.firstname);
+                setUserDetails(res.data);
             }
         } catch (err) {
             console.log(err);
             setLogin("");
         }
-    }, [setLogin,setIsMerchant]); // Empty dependency array because getUser doesn't depend on any props or state
+    }, [setLogin,setIsMerchant,setUserDetails]); // Empty dependency array because getUser doesn't depend on any props or state
     
     useEffect(()=>{
         getUser();
@@ -109,6 +110,7 @@ const LoginDialog = ({open,setOpen}) => {
                 setIsMerchant(response.data.isMerchant);
                 setLogin(signup.firstname);
                 handleClose();
+                setUserDetails(response.data);
                 window.location.reload();
                 // const data = response.data.user
             }
@@ -132,6 +134,7 @@ const LoginDialog = ({open,setOpen}) => {
             handleClose();
             setIsMerchant(response.data.isMerchant);
             setLogin(response.data.firstname);
+            setUserDetails(response.data);
             window.location.reload();
             // if(isMerchant){
             //     navigate("/");
