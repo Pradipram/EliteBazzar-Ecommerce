@@ -36,6 +36,7 @@ const Profile = ({ account, setAccount }) => {
         if(res.status === 200){
             setAccount('');
             navigate('/');
+            window.location.reload();
         }
         else{
             alert("something went wrong. Please try again");

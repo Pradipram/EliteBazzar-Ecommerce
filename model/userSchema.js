@@ -37,6 +37,10 @@ const userSchema = new mongoose.Schema({
     minlength: [10, "Phone number should be of 10 digit Number"],
     maxlength: [10, "Phone number should be of 10 digit Number"],
   },
+  isMerchant: {
+    type: Boolean,
+    default: false
+  }
 });
 
 //fire a function after a doc saved to db

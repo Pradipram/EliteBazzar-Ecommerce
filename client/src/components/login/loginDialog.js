@@ -15,7 +15,6 @@ import { LoginContext } from "../../context/dataProvider";
 import "./loginDialog.css";
 import { Component, CreateAccount, Error, LoginButton, SignUpButton, Text, Wrapper } from "./loginStyle";
 
-
 const signupInitialValues = {
     firstname: '',
     lastname: '',
@@ -45,6 +44,7 @@ const LoginDialog = ({open,setOpen}) => {
     const [error,setError] = useState(false);
     const {setLogin} = useContext(LoginContext);
     const [visible,setVisible] = useState(false);
+    const {setIsMerchant} = useContext(LoginContext)
     // const [firstNameError,setFirstNameError] = useState("");
     const [signUpError,setSignUpError] = useState(errors);
 
@@ -53,13 +53,16 @@ const LoginDialog = ({open,setOpen}) => {
             const res = await getUserApi();
             // console.log("res in getUser is ", res);
             if(res.data){
+                const isMerchant = res.data.isMerchant;
+                // console.log("isMerchant,loginDialog.js",60,isMerchant);
+                setIsMerchant(isMerchant);
                 setLogin(res.data.firstname);
             }
         } catch (err) {
             console.log(err);
             setLogin("");
         }
-    }, [setLogin]); // Empty dependency array because getUser doesn't depend on any props or state
+    }, [setLogin,setIsMerchant]); // Empty dependency array because getUser doesn't depend on any props or state
     
     useEffect(()=>{
         getUser();
@@ -103,8 +106,10 @@ const LoginDialog = ({open,setOpen}) => {
                 setSignUpError(finalError);
             }
             else{
+                setIsMerchant(response.data.isMerchant);
                 setLogin(signup.firstname);
                 handleClose();
+                window.location.reload();
                 // const data = response.data.user
             }
         }
@@ -125,7 +130,12 @@ const LoginDialog = ({open,setOpen}) => {
             // showError(false);
             setError(false);
             handleClose();
+            setIsMerchant(response.data.isMerchant);
             setLogin(response.data.firstname);
+            window.location.reload();
+            // if(isMerchant){
+            //     navigate("/");
+            // }
         }
     }
 

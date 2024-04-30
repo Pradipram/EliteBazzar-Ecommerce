@@ -86,7 +86,7 @@ export const getUser = (req,res) =>{
           }
           else{
               const user = await User.findById(decodedToken.id);
-              res.status(200).json({firstname : user.firstname});
+              res.status(200).json(user);
           }
       })
   }
