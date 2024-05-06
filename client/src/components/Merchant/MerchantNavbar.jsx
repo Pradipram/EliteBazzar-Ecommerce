@@ -61,7 +61,7 @@ const MerchantNavbar = () => {
           open={drawerOpen}
           onClose={handleCloseDrawer}
           stringAvatar={stringAvatar}
-          user={userDetails.firstname + userDetails.lastname}
+          user={userDetails.firstname + " " + userDetails.lastname}
           email={userDetails.email}
         />
       </div>

@@ -1,5 +1,5 @@
 //Libraries
-import { Box } from "@mui/material";
+// import { Box } from "@mui/material";
 import { BrowserRouter, Route,Routes} from "react-router-dom";
 
 //components
@@ -16,7 +16,7 @@ function App() {
     <DataProvider>
       <BrowserRouter>
         <Header/>
-        <Box style={{marginTop : 54}}>
+        {/* <Box style={{marginTop : 54}}> */}
           <Routes>
               <Route path="/" element = {<Home/>}/>
               <Route path="/product/:id" element = {<DetailView/>}/>
@@ -24,7 +24,7 @@ function App() {
               <Route path="/paymentsuccess" element= {<PaymentSuccess/>} />
               <Route path="/about" element={<About/>} />
           </Routes>
-        </Box>
+        {/* </Box> */}
       </BrowserRouter>
     </DataProvider>
   );
