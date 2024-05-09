@@ -31,3 +31,14 @@ export const getProductDetailsReducer = (state = { product: {}}, action) => {
             return state
     }
 }
+
+export const addItemReducer = (state = {product: {}}, action) => {
+    switch(action.type){
+        case actionTypes.ADD_ITEM:
+            return {product : action.payload }
+        case actionTypes.ADD_ITEM_FAIL:
+            return {error : action.payload}
+        default :
+            return state;
+    }
+}

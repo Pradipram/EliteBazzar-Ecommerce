@@ -1,6 +1,8 @@
 //Libraries
 // import { Box } from "@mui/material";
 import { BrowserRouter, Route,Routes} from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 //components
 import Header from "./components/header/Header";
@@ -26,6 +28,7 @@ function App() {
           </Routes>
         {/* </Box> */}
       </BrowserRouter>
+      <ToastContainer />
     </DataProvider>
   );
 }

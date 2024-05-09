@@ -1,10 +1,11 @@
 import express from  'express';
-import { getProductById, getProducts } from '../controller/product-controller.js';
+import { addProduct, getProductById, getProducts } from '../controller/product-controller.js';
 import {jwtSignUp, jwtSignIn, logoutUser, getUser, getUserById } from '../controller/user-controller.js';
 import { checkout, paymentVerification } from '../controller/razorpayController.js';
 import { AddToCart, getAllCart, removeFromCart } from '../controller/cart-controller.js';
 import { requireAuth } from '../middleware/authMiddleware.js';
 import { AddReview, getReveiw } from '../controller/reviewController.js';
+import { isMerchant } from '../middleware/merchantMidleware.js';
 
 const router = express.Router();
 
@@ -17,6 +18,7 @@ router.get('/getuser/:id',getUserById);
 
 router.get('/products', getProducts);
 router.get('/product/:id',getProductById);
+router.post('/addProduct',requireAuth,isMerchant,addProduct);
 
 router.get('/cart',requireAuth,getAllCart);
 router.post('/cart/:id',requireAuth,AddToCart);

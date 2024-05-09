@@ -8,9 +8,9 @@ export const addToCart = (id,navigate) => async (dispatch) => {
     try { 
         const { data } = await axios.get(`${url}/product/${id}`);
         delete data._id;
-        console.log("data we are getting is ",data);
+        // console.log("data we are getting is ",data);
         let response = await axios.post(`${url}/cart/${id}`,{cartData : data},{withCredentials:true});
-        console.log("response getting in addToCart is : ",response);
+        // console.log("response getting in addToCart is : ",response);
         if(response.status === 200){
             navigate("/cart");
         }

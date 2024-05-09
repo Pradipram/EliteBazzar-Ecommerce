@@ -83,7 +83,7 @@ function Profile({
         </Button>
         <Modal open={modalOpen} onClose={handleModalClose}>
           <Box sx={{ ...style, minWidth: 200 }}>
-          <AddItems/>
+          <AddItems handleModalClose = {handleModalClose}/>
 
           </Box>
         </Modal>

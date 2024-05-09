@@ -6,14 +6,34 @@ const productSchema = new mongoose.Schema({
         required : true,
         unique : true
     },
-    url: String,
-    detailUrl: String,
-    title: Object,
-    price: Object,
-    quantity: Number,
-    description: String,
-    discount: String,
-    tagline: String
+    url: {
+        type: String,
+        required : true
+    },
+    title: {
+        type: String,
+        required : true
+    },
+    price: {
+        type: Number,
+        required: true
+    },
+    quantity: {
+        type: Number,
+        required : true
+    },
+    description: {
+        type: String,
+        required : true
+    },
+    discount: {
+        type: Number,
+        default : 0
+    },
+    MerchandId: {
+        type: String,
+        required : true
+    }
 });
 
 
