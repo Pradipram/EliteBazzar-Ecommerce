@@ -79,7 +79,7 @@ const DetailView = () => {
                             <ActionItem product={product} />
                         </Grid>
                         <RightContainer item lg={8} md={8} sm={8} xs={12} style={{margin: "auto",padding: 20}}>
-                            <h2 style={{marginBottom: 0,color:'#363434'}}>{product.title.longTitle}</h2>
+                            <h2 style={{marginBottom: 0,color:'#363434'}}>{product.title}</h2>
                             <div style={{marginTop: 5, color: '#878787', fontSize: 14,display:"flex",alignItems:"center" }}>
                                 {
                                     review && review.length > 0 ?
@@ -96,11 +96,11 @@ const DetailView = () => {
                             </div><hr/>
                             <Typography>
                                 <Box>
-                                    <span style={{ color: '#388E3C' }}>-{product.price.discount} off</span>
-                                    <span style={{ fontSize: 28 }}>₹{product.price.cost}</span>&nbsp;&nbsp;&nbsp; 
+                                    <span style={{ color: '#388E3C' }}>-{product.discount} off</span>
+                                    <span style={{ fontSize: 28 }}>₹{product.price - (product.price * product.discount)/100}</span>&nbsp;&nbsp;&nbsp; 
                                 </Box>
                                 <Box>
-                                    <span style={{ color: '#878787' }}>M.R.P.:-<strike> ₹{product.price.mrp}</strike></span>&nbsp;
+                                    <span style={{ color: '#878787' }}>M.R.P.:-<strike> ₹{product.price}</strike></span>&nbsp;
                                     Inclusive of all taxes
                                 </Box>
                             </Typography><hr/>
