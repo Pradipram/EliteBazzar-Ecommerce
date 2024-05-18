@@ -1,8 +1,11 @@
 import * as React from 'react';
 import { PieChart } from '@mui/x-charts/PieChart';
 
+import "./Merchant.css"
+
 export default function BasicPie() {
   return (
+    <div className='pieChart mx-5 mb-2 mt-3'>
     <PieChart
       series={[
         {
@@ -16,5 +19,6 @@ export default function BasicPie() {
       width={400}
       height={200}
     />
+    </div>
   );
 }

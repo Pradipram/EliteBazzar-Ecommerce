@@ -30,7 +30,7 @@ const productSchema = new mongoose.Schema({
         type: Number,
         default : 0
     },
-    MerchandId: {
+    merchantId: {
         type: String,
         required : true
     }

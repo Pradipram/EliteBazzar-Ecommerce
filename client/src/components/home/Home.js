@@ -11,12 +11,13 @@ import Merchant from "../Merchant/Merchant";
 import { LoginContext } from "../../context/dataProvider";
 
 const Home = () => {
-  const {isMerchant} = useContext(LoginContext);
+  const {isMerchant,userDetails} = useContext(LoginContext);
 
   const dispatch = useDispatch();
   const getProduct = useSelector((state) => state.getProducts);
   const { products } = getProduct;
   // console.log("products : ",products);
+  const merchantProducts = products ? products.filter(product => product.merchantId === userDetails._id) : [];
 
   useEffect(() => {
     dispatch(getProducts());
@@ -25,7 +26,7 @@ const Home = () => {
   return (
     <>
       {isMerchant ? (
-        <Merchant />
+        <Merchant merchantProducts = {merchantProducts}/>
       ) : (
         <>
           <NavBar isMerchant = {isMerchant}/>

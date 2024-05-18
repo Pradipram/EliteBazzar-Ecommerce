@@ -29,3 +29,13 @@
   justify-content: center;
   /* align-items: center; */
 }
+
+.merchantHome {
+  background-color: rgb(238, 238, 238);
+}
+
+.pieChart {
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+}

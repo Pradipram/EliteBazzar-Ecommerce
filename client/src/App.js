@@ -12,6 +12,7 @@ import DetailView from "./components/details/detailView";
 import Cart from "./components/cart/Cart";
 import PaymentSuccess from "./components/payment/paymentSuccess";
 import About from "./components/other/About";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           </Routes>
         {/* </Box> */}
       </BrowserRouter>
+      <Footer/>
       <ToastContainer />
     </DataProvider>
   );
