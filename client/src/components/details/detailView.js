@@ -97,7 +97,7 @@ const DetailView = () => {
                             <Typography>
                                 <Box>
                                     <span style={{ color: '#388E3C' }}>-{product.discount} off</span>
-                                    <span style={{ fontSize: 28 }}>₹{product.price - (product.price * product.discount)/100}</span>&nbsp;&nbsp;&nbsp; 
+                                    <span style={{ fontSize: 28 }}>₹{(product.price - (product.price * product.discount)/100).toFixed(2)}</span>&nbsp;&nbsp;&nbsp; 
                                 </Box>
                                 <Box>
                                     <span style={{ color: '#878787' }}>M.R.P.:-<strike> ₹{product.price}</strike></span>&nbsp;
