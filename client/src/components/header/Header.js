@@ -84,7 +84,7 @@ const Header = () => {
             </Drawer>
 
             <Component to={"/"}>
-              <img src={logo} alt="logo" style={{ width: 170 }} />
+              <img src={logo} alt="logo" style={{width: 170}} />
             </Component>
             <Search />
             <CustomButtonWrapper>
