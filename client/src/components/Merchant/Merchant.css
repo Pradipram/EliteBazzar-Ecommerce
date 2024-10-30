@@ -32,6 +32,7 @@
 
 .merchantHome {
   background-color: rgb(238, 238, 238);
+  min-height: 82.2vh;
 }
 
 .pieChart {

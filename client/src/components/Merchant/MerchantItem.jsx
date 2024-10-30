@@ -33,7 +33,7 @@ const MerchantItem = ({merchantProducts}) => {
                 <TableCell component="th" scope="row">
                   {row.title}
                 </TableCell>
-                <TableCell align="right">100</TableCell>
+                <TableCell align="right">{row.quantity}</TableCell>
                 <TableCell align="right">{row.price}</TableCell>
                 <TableCell align='right'>{row.discount}</TableCell>
                 <TableCell align="right">Update</TableCell>

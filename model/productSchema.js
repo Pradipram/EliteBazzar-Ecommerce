@@ -33,6 +33,10 @@ const productSchema = new mongoose.Schema({
     merchantId: {
         type: String,
         required : true
+    },
+    tag: {
+        type: [String],
+        default: []  // Optional: default to an empty array if no tags are provided
     }
 });
 
