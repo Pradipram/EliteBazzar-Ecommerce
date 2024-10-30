@@ -4,12 +4,38 @@ import { url } from '../../constants/data';
 import * as actionTypes from '../constants/cartConstants';
 import axios from 'axios';
 
+function transformToCartSchema(data) {
+    const discountAmount = (data.price * (data.discount / 100)).toFixed(2); // Calculate discount amount based on percentage
+    const cost = data.price - discountAmount;
+  
+    return {
+      id: data.id,
+      userId: data.merchantId, 
+      url: data.url,
+    //   detailUrl: data.url, 
+    //   title: {
+    //     shortTitle: data.title, 
+    //     longTitle: data.title,
+    //   },
+    title: data.title,
+      price: {
+        mrp: data.price,
+        cost: parseFloat(cost), // Ensure `cost` is a number
+        discount: data.discount.toString(),
+      },
+    };
+  }
+  
+  // Usage example:
+
 export const addToCart = (id,navigate) => async (dispatch) => {
     try { 
         const { data } = await axios.get(`${url}/product/${id}`);
-        delete data._id;
         // console.log("data we are getting is ",data);
-        let response = await axios.post(`${url}/cart/${id}`,{cartData : data},{withCredentials:true});
+        const cartData = transformToCartSchema(data);
+        // console.log("cartSchema: ",transformedData);
+        // delete data._id;
+        let response = await axios.post(`${url}/cart/${id}`,{cartData : cartData},{withCredentials:true});
         // console.log("response getting in addToCart is : ",response);
         if(response.status === 200){
             navigate("/cart");

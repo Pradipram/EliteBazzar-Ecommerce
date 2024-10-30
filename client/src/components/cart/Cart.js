@@ -16,6 +16,7 @@ import { url } from '../../constants/data';
 const Component = styled(Grid)(({ theme }) => ({
     padding: '30px 135px',
     display: 'flex',
+    minHeight: '86.5vh',
     [theme.breakpoints.down('sm')]: {
         padding: '15px 0'
     }
@@ -98,13 +99,15 @@ const Cart = () => {
     return (
         <>
         {cartItems &&  cartItems.length ? 
-            <Component container>
+            <Component container style={{marginTop: "30px"}}>
                 <LeftComponent item lg={9} md={9} sm={12} xs={12}>
                     <Header>
                         <Typography style={{fontWeight: 600, fontSize: 18}}>My Cart ({cartItems?.length})</Typography>
                     </Header>
                         {   cartItems.map(item => (
-                                <CartItem item={item} 
+                                <CartItem 
+                                key={item._id}
+                                item={item} 
                                 removeItemFromCart={removeItemFromCart}
                                 />
                             ))

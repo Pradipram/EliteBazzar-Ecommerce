@@ -58,9 +58,10 @@ const PaymentSuccess = () => {
     <div className="imageContainer">
       {product ? (
         <div className="image">
-          <img src={product.detailUrl} alt="not found" />
-          <h3>{product.title.longTitle}</h3>
-          <p>{product.description}</p>
+          <img src={product.url} alt="not found" />
+          {/* <h3>{product.title.longTitle}</h3> */}
+          <h3>{product.title}</h3>
+          {/* <p>{product.description}</p> */}
         </div>
       ) : (
         <div>Something went Wrong</div>

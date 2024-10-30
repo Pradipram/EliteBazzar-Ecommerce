@@ -21,11 +21,11 @@ export const getProductById = async (request, response) => {
 
 export const addProduct = async (request, response) => {
     try{
-        console.log("Add product is being called");
+        // console.log("Add product is being called");
         let {productCode, ...newProduct} = request.body;
         newProduct = {...newProduct, "id" : request.body.productCode};
-        newProduct = {...newProduct, "MerchandId" : request.userId};
-        // console.log(product);
+        newProduct = {...newProduct, "merchantId" : request.userId};
+        // console.log(newProduct);
         let isExist = await Product.findOne({id: newProduct.id});
         if(isExist){
             return response.status(403).json({message: "Product already exist with this ProductCode"});
@@ -39,6 +39,7 @@ export const addProduct = async (request, response) => {
         return response.status(200).json(product);
     }
     catch( error ){
+        console.log(error);
         response.status(500).json({message : "something went wrong"});
     }
 }

@@ -43,7 +43,7 @@ export const addProduct = (item, toast, handleModalClose) => async (dispatch) =>
     const res = await axios.post("/addProduct", item, {
       withCredentials: true,
     });
-    console.log("ProductAction,42", res);
+    // console.log("ProductAction,42", res);
     if (res.status === 200) {
       dispatch({ type: actionTypes.ADD_ITEM, payload: item });
       toast.success("Item added successfully");

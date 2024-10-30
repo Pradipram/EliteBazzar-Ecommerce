@@ -36,6 +36,7 @@ const ActionItem = ({ product }) => {
     const navigate = useNavigate();
     const { id } = product;
         
+    // console.log("product: ",product);
     const dispatch = useDispatch();
 
     // const {Login} = useContext(LoginContext);
@@ -46,9 +47,10 @@ const ActionItem = ({ product }) => {
                 withCredentials:true
             })
     
-            let {data:{order}} = await axios.post(`${url}/checkout`,{
-                amount : product.price.cost 
+            let { data: { order } } = await axios.post(`${url}/checkout`, {
+                amount: (product.price - (product.price * product.discount) / 100).toFixed(2)
             });
+            
             var options = {
                 key,
                 amount: order.amount, 

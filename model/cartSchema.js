@@ -13,19 +13,21 @@ const cartSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  detailUrl: {
-    type: String,
-    required: true,
-  },
+  // detailUrl: {
+  //   type: String,
+  //   required: true,
+  // },
   title: {
-    shortTitle: {
-      type: String,
-      required: true,
-    },
-    longTitle: {
-      type: String,
-      required: true,
-    },
+    type: String,
+    required: true
+    // shortTitle: {
+    //   type: String,
+    //   required: true,
+    // },
+    // longTitle: {
+    //   type: String,
+    //   required: true,
+    // },
   },
   price: {
     mrp: {
@@ -40,15 +42,15 @@ const cartSchema = new mongoose.Schema({
       type: String,
       default: 0,
     },
-    description: {
-      type: String,
-    },
-    discount: {
-      type: String,
-    },
-    tagline: {
-      type: String,
-    },
+    // description: {
+    //   type: String,
+    // },
+    // discount: {
+    //   type: String,
+    // },
+    // tagline: {
+    //   type: String,
+    // },
   },
 });
 

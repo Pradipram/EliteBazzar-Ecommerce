@@ -4,7 +4,9 @@ dotenv.config();
 
 export const AddToCart = async (req, res) => {
   // console.log(req.body);
-  // console.log(req.userId);
+  // console.log("userID",req.userId);
+  // console.log("productId",req.params.id);
+  // console.log("product: ",req.body.cartData);
   try {
     const exist = await Cart.findOne({ id: req.params.id, userId: req.userId });
     // console.log(exist);

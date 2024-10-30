@@ -32,7 +32,7 @@ const AddItems = ({handleModalClose}) => {
             let reader = new FileReader();
             reader.readAsDataURL(compressedFile);
             reader.onload = () => {
-                console.log(reader.result);
+                // console.log(reader.result);
                 setItem({...item,'url':reader.result});
             }
         }

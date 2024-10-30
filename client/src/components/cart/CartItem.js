@@ -43,6 +43,9 @@ const Remove = styled(Button)`
 
 const CartItem = ({ item, removeItemFromCart }) => {
 
+    // console.log("item in cartItem",item);
+    // console.log("shortTitle: ",item.title.shortTitle);
+
     return (
         <Component>
             <LeftComponent>
@@ -50,14 +53,13 @@ const CartItem = ({ item, removeItemFromCart }) => {
                 <GroupButton />
             </LeftComponent>
             <Box style={{ margin: 20 }}>
-                <Typography>{addEllipsis(item.title.longTitle)}</Typography>
-                <SmallText>Seller:RetailNet
-                </SmallText>
-                <Typography style={{margin: '20px 0'}}>
+                <Typography>{addEllipsis(item.title)}</Typography>
+                <SmallText>Seller:RetailNet</SmallText>
+                <div style={{margin: '20px 0'}}>
                     <Cost component="span">₹{item.price.cost}</Cost>&nbsp;&nbsp;&nbsp;
                     <MRP component="span"><strike>₹{item.price.mrp}</strike></MRP>&nbsp;&nbsp;&nbsp;
                     <Discount component="span">{item.price.discount} off</Discount>
-                </Typography>
+                </div>
                 <Remove onClick={() => removeItemFromCart(item.id)}>Remove</Remove>
             </Box>
         </Component>

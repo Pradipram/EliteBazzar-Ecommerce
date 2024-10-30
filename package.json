@@ -9,13 +9,15 @@
     "backend": "nodemon index.js",
     "frontend": "cd client && npm start",
     "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
-    "build-client": "cd client && npm run build"
+    "build-client": "cd client && npm run build",
+    "push": "npm run build-client && git add . && git commit -m \"build complete\" && git push -m origin main"
   },
   "author": "Pradip",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
+    "braces": ">=2.3.1",
     "concurrently": "^8.2.2",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -26,9 +28,10 @@
     "https": "^1.0.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^7.3.0",
+    "nodemon": "^3.1.7",
+    "npm": "^10.9.0",
     "razorpay": "^2.8.6",
     "uuid": "^9.0.0",
-    "validator": "^13.11.0",
-    "braces": ">=2.3.1"
+    "validator": "^13.11.0"
   }
 }

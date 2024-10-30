@@ -3,6 +3,7 @@ import crypto from "crypto";
 import { Payment } from "../model/paymentModel.js";
 
 export const checkout = async (req, res) => {
+  console.log("amount",req.body.amount);
   const options = {
     amount : Number(req.body.amount * 100),
     currency: "INR",

@@ -16,10 +16,13 @@ router.get('/logout',logoutUser);
 router.get('/getuser',getUser);
 router.get('/getuser/:id',getUserById);
 
+
+//related to product
 router.get('/products', getProducts);
 router.get('/product/:id',getProductById);
 router.post('/addProduct',requireAuth,isMerchant,addProduct);
 
+//related to cart
 router.get('/cart',requireAuth,getAllCart);
 router.post('/cart/:id',requireAuth,AddToCart);
 router.delete('/cart/:id',requireAuth,removeFromCart);
