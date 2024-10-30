@@ -10,10 +10,13 @@
     "frontend": "cd client && npm start",
     "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
     "build-client": "cd client && npm run build",
-    "push": "npm run build-client && git add . && git commit -m \"build complete\" && git push -u origin main"
+    "push": "npm run build-client && git add . && git commit -m \"build complete\" && git push -u origin master"
   },
   "author": "Pradip",
   "license": "ISC",
+  "engines": {
+      "node": ">=16"
+  },
   "dependencies": {
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
