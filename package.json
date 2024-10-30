@@ -10,7 +10,7 @@
     "frontend": "cd client && npm start",
     "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
     "build-client": "cd client && npm run build",
-    "push": "npm run build-client && git add . && git commit -m \"build complete\" && git push -m origin main"
+    "push": "npm run build-client && git add . && git commit -m \"build complete\" && git push -u origin main"
   },
   "author": "Pradip",
   "license": "ISC",
